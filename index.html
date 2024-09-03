@@ -3,44 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <title>Listado de Tesis</title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2LCRZ9ZNFX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2LCRZ9ZNFX');
-</script>
     <style>
         body {
             background-color: #f8f9fa;
             color: #343a40;
             font-family: Arial, sans-serif;
         }
+
         .container {
             margin-top: 30px;
         }
+
         .header-image {
             width: 100%;
             height: auto;
             object-fit: cover;
             border-radius: 8px;
         }
+
         .card {
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: 0.3s;
             margin: 10px 0;
         }
+
         .card:hover {
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
+
         .card-body {
             padding: 20px;
         }
+
         .search-form {
             margin-bottom: 20px;
             background-color: #ffffff;
@@ -48,9 +49,11 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         .search-form label {
             margin-right: 15px;
         }
+
         .search-form input[type="text"] {
             margin-top: 10px;
             width: 100%;
@@ -58,31 +61,59 @@
             border-radius: 4px;
             border: 1px solid #ced4da;
         }
+
         .table-responsive {
             margin-top: 20px;
         }
+
         .table thead {
-            background-color:  #236259;
+            background-color: #236259;
             color: #ffffff;
-            text-align: center; /* Centrar el texto en el thead */
+            text-align: center;
         }
+
         .table tbody {
-            background-color: #ffffff; /* Establecer el color de fondo del tbody a blanco */
+            background-color: #ffffff;
         }
+
         .welcome-text {
             margin-bottom: 20px;
         }
 
-        /* Media Queries */
+        .table tbody td {
+            vertical-align: middle;
+            /* Centrar verticalmente el contenido de las celdas */
+            text-align: center;
+            /* Centrar horizontalmente el contenido de las celdas */
+        }
+
+        .icon-link {
+            color: #236259;
+            /* Color del icono */
+            font-size: 1.5em;
+            /* Tamaño del icono */
+            text-decoration: none;
+            /* Sin subrayado */
+        }
+
+        .icon-link:hover {
+            color: #1a4d3b;
+            /* Color del icono al pasar el cursor */
+        }
+            
+
+
         @media (max-width: 768px) {
             .header-image {
-                height: auto; /* Ajustar la altura para pantallas más pequeñas */
+                height: auto;
             }
+
             .search-form input[type="text"] {
-                font-size: 14px; /* Ajustar el tamaño de fuente para pantallas más pequeñas */
+                font-size: 14px;
             }
+
             .card-body {
-                padding: 15px; /* Reducir el padding en pantallas más pequeñas */
+                padding: 15px;
             }
         }
     </style>
@@ -100,26 +131,31 @@
                         <h2 class="card-title mb-4">Consulta el Catálogo de Tesis de la Biblioteca de Informática</h2>
 
                         <div class="welcome-text">
-                            <p>Bienvenido a nuestro catálogo en línea. Aquí puedes buscar tesis disponibles en nuestra biblioteca por nombre de autor, título o año. Utiliza los filtros a continuación para encontrar lo que necesitas.</p>
+                            <p>Bienvenido a nuestro catálogo en línea. Aquí puedes buscar tesis disponibles en nuestra
+                                biblioteca por nombre de autor, título o año. Utiliza los filtros a continuación para
+                                encontrar lo que necesitas.</p>
                         </div>
 
                         <form id="search-form" class="search-form">
-                            
+
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="searchCriteria" id="searchNombres" value="nombres" checked>
+                                <input class="form-check-input" type="radio" name="searchCriteria" id="searchNombres"
+                                    value="nombres" checked>
                                 <label class="form-check-label" for="searchNombres">Apellidos & Nombres</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="searchCriteria" id="searchTitulo" value="titulo">
+                                <input class="form-check-input" type="radio" name="searchCriteria" id="searchTitulo"
+                                    value="titulo">
                                 <label class="form-check-label" for="searchTitulo">Título</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="searchCriteria" id="searchAno" value="ano">
+                                <input class="form-check-input" type="radio" name="searchCriteria" id="searchAno"
+                                    value="ano">
                                 <label class="form-check-label" for="searchAno">Año</label>
                             </div>
 
                             <input type="text" id="search" class="form-control mt-2" placeholder="Buscar">
-                            
+
                         </form>
 
                         <div class="table-responsive">
@@ -131,6 +167,7 @@
                                         <th scope="col">TÍTULO</th>
                                         <th scope="col">AÑO</th>
                                         <th scope="col">OBSERVACIONES</th>
+                                        <th scope="col">RECURSOS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -144,9 +181,15 @@
         </div>
     </div>
     <script src="js/fetch.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3XBX1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3XBX1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
